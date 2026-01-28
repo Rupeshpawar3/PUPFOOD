@@ -1,0 +1,8 @@
+{
+  "name": "PUPFOOD",
+  "description": "AI-powered dog care companion with food analysis and voice assistance.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

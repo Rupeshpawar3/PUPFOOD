@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PUPFOOD</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        // Interactive Controls - Vibrant Cyan
+                        "primary": "#06B6D4",
+                        "primary-dark": "#0891B2",
+                        "primary-bright": "#22D3EE",
+                        // Hero Elements - Purple/Violet Gradient
+                        "accent": "#6366F1", // Electric Indigo (gradient start)
+                        "accent-violet": "#A855F7", // Deep Violet (gradient end)
+                        // Status & Action Colors
+                        "success": "#10B981", // Emerald Green
+                        "warning": "#F59E0B", // Soft Amber
+                        // Backgrounds
+                        "background-light": "#F0F7F5",
+                        "background-dark": "#0A0C10", // Deep Obsidian
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#121212",
+                        "surface-glass": "rgba(0, 78, 74, 0.1)",
+                        "mint": "#ccfbf1",
+                        "sage": "#4c9a80",
+                        "sage-light": "#e0f2ec",
+                        "amber-muted": "#d9a15c",
+                        "amber-dark": "#b07d3f",
+                        "warm-beige": "#F5F7F6",
+                        "forest-green": "#1E4D2B",
+                        "mint-light": "#cfe7db",
+                        "warm-text": "#2C2621",
+                        "warm-beige-dark": "#1C2A22",
+                        "soft-mint": "#E0F2F1",
+                        "text-dark": "#1A1C19",
+                        "text-secondary": "#94A3B8", // Cool Gray
+                        "nav-inactive": "#4B5563", // Muted Slate Gray
+                        "warm-white": "#F8FAFC",
+                        "med-green": "#0fbd2c",
+                        "deep-green": "#0e1b14",
+                        "settings-primary": "#004E4A",
+                        "emergency-red": "#C2410C",
+                        "hospital-teal": "#0D9488",
+                        "forest": "#0a3318",
+                        "mint-bg": "#E0F2F1"
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "Manrope", "sans-serif"],
+                        "sans-jakarta": ["Plus Jakarta Sans", "sans-serif"],
+                        "manrope": ["Manrope", "Noto Sans", "sans-serif"],
+                        "sans": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "3xl": "2.5rem",
+                        "blob": "40% 60% 70% 30% / 40% 50% 60% 50%",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 78, 74, 0.1)',
+                        'card': '0 10px 30px -4px rgba(0, 0, 0, 0.05)',
+                        'card-dark': '0 10px 40px -4px rgba(0, 0, 0, 0.4)',
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                        'glow-amber': '0 0 25px rgba(245, 158, 11, 0.2)',
+                        "glow": "0 0 25px rgba(0, 78, 74, 0.4)",
+                        "neon": "0 0 15px rgba(0, 78, 74, 0.7), 0 0 30px rgba(0, 78, 74, 0.3)",
+                        "tactile": "0 4px 0 0",
+                        "tactile-sm": "0 2px 0 0",
+                        "inner-light": "inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)",
+                        "glow-green": "0 0 20px rgba(0, 78, 74, 0.6)",
+                    },
+                    backgroundImage: {
+                        'card-gradient-dark': 'linear-gradient(135deg, #003633 0%, #004E4A 100%)',
+                        'subtle-grain': 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' opacity=\'0.05\'/%3E%3C/svg%3E")',
+                        'vignette': 'radial-gradient(circle, transparent 40%, rgba(0,0,0,0.6) 100%)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wave': 'wave 1.5s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up-fade': 'slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'scale-in': 'scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pop': 'pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    },
+                    keyframes: {
+                        wave: {
+                            '0%, 100%': { transform: 'scaleY(0.5)' },
+                            '50%': { transform: 'scaleY(1.0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideUpFade: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        pop: {
+                            '0%': { transform: 'scale(0.95)' },
+                            '40%': { transform: 'scale(1.02)' },
+                            '100%': { transform: 'scale(1)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            min-height: max(884px, 100dvh);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom pulsing effect simulation */
+        .pulse-ring-1 {
+            box-shadow: 0 0 0 10px rgba(0, 78, 74, 0.1);
+        }
+
+        .pulse-ring-2 {
+            box-shadow: 0 0 0 20px rgba(0, 78, 74, 0.05);
+        }
+
+        /* Map Styles */
+        .map-pattern {
+            background-color: #e5e7eb;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAIqp9WBYR97X_mC3I6-vwof7otgRKqNS0n6d7R37yiYf22-u97Dq8NV6c598m5HhKcz0eoJwYyFMDUT0m_C4IbIGCc8UHwm_sNBnbvXB-AGWKDyynwitGeZN3sbfDNfkiHZFZXjjae9-uWAO8iYoqUAyKakMijLWAZv-F7a5RvC08x7c3tH5shFsRW9OwIu_3s538WHCU6qsGJRkOb9Ogv8XXu18FkA0f7MGbjsD2VGLt57Wgl04Eg0-ugC01LerM6VaJLxNSLHRU);
+        }
+
+        .dark .map-pattern {
+            background-color: #1f2937;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAqOMtlJAdUnbUfJJTfB7yWIt4i4nWp4hSrz-YrRaKmFSdn1cnTEOxAGV34bZHu8KxAUVrVm8mNhBPV93D0XvHErrju7bUCrkvImp1vpITHavfdcgm3igijm7HszvKwkqTEc3XKwaRe7orasPwNhfN2a87KJqfhOSdI5FKynPmj95ssRLBW4MXSRoB9DNU1EbroFtw42f66rGV3SSr8pWAjTOo9GYM_yt3GUWk20Xyun6j_SHs_hho6BG_gvkVXmU44KH6U9iUym1Y);
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+                opacity: 1;
+            }
+
+            80%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .pulse-ring::before {
+            content: "";
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            border-radius: 50%;
+            background-color: rgba(0, 78, 74, 0.5);
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        /* Existing classes */
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.85);
+            /* Updated to new dark bg */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .amber-texture {
+            background-color: #fffbeb;
+            background-image: radial-gradient(#fcd34d 0.5px, transparent 0.5px), radial-gradient(#fcd34d 0.5px, #fffbeb 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        .dark .amber-texture {
+            background-color: rgba(69, 26, 3, 0.4);
+            background-image: radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 1px), radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 1px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.1) inset;
+        }
+
+        /* New Classes for Health Result */
+        .organic-pattern {
+            background-color: #f6f8f7;
+            background-image:
+                radial-gradient(at 10% 10%, rgba(0, 78, 74, 0.08) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(38, 158, 150, 0.08) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.8) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .dark.organic-pattern,
+        .dark .organic-pattern {
+            background-color: #050505;
+            background-image:
+                radial-gradient(at 20% 0%, rgba(0, 78, 74, 0.05) 0px, transparent 40%),
+                radial-gradient(at 80% 100%, rgba(38, 158, 150, 0.03) 0px, transparent 40%);
+        }
+
+        .icon-3d-container {
+            background: linear-gradient(135deg, #004E4A 0%, #003633 100%);
+            box-shadow:
+                0 20px 30px -10px rgba(0, 78, 74, 0.5),
+                inset 0 4px 6px rgba(255, 255, 255, 0.4),
+                inset 0 -4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dark .icon-3d-container {
+            box-shadow:
+                0 0 40px rgba(0, 78, 74, 0.5),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 78, 74, 0.4);
+        }
+
+        .btn-tactile {
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-tactile:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        .btn-tactile-primary {
+            box-shadow: 0 4px 0 0 #003633;
+        }
+
+        .btn-tactile-primary:active {
+            box-shadow: 0 0 0 0 #003633;
+        }
+
+        .dark .btn-tactile {
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transform: none !important;
+        }
+
+        .dark .btn-tactile:active {
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.9);
+            transform: translateY(1px) !important;
+        }
+
+        .dark .btn-tactile-primary {
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 78, 74, 0.1);
+            border: none;
+        }
+
+        .dark .btn-tactile-primary:active {
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .dark .glowing-dot {
+            box-shadow: 0 0 12px rgba(0, 78, 74, 0.6);
+        }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body
+    class="bg-background-dark text-slate-100 font-display min-h-screen relative selection:bg-primary selection:text-white overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
