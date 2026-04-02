@@ -31,3 +31,4 @@ PUPFOOD is a comprehensive dog care application designed to help pet owners mana
 - Framer Motion
 - Node.js & Express (Backend)
 - Google Gemini AI
+# PUPFOOD_final
